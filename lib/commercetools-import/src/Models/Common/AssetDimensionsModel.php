@@ -20,12 +20,12 @@ use stdClass;
 final class AssetDimensionsModel extends JsonObjectModel implements AssetDimensions
 {
     /**
-     * @var ?float
+     * @var ?int
      */
     protected $w;
 
     /**
-     * @var ?float
+     * @var ?int
      */
     protected $h;
 
@@ -34,8 +34,8 @@ final class AssetDimensionsModel extends JsonObjectModel implements AssetDimensi
      * @psalm-suppress MissingParamType
      */
     public function __construct(
-        ?float $w = null,
-        ?float $h = null
+        ?int $w = null,
+        ?int $h = null
     ) {
         $this->w = $w;
         $this->h = $h;
@@ -44,17 +44,17 @@ final class AssetDimensionsModel extends JsonObjectModel implements AssetDimensi
     /**
      * <p>The width of the asset source.</p>
      *
-     * @return null|float
+     * @return null|int
      */
     public function getW()
     {
         if (is_null($this->w)) {
-            /** @psalm-var ?float $data */
+            /** @psalm-var ?int $data */
             $data = $this->raw(self::FIELD_W);
             if (is_null($data)) {
                 return null;
             }
-            $this->w = (float) $data;
+            $this->w = (int) $data;
         }
 
         return $this->w;
@@ -63,17 +63,17 @@ final class AssetDimensionsModel extends JsonObjectModel implements AssetDimensi
     /**
      * <p>The height of the asset source.</p>
      *
-     * @return null|float
+     * @return null|int
      */
     public function getH()
     {
         if (is_null($this->h)) {
-            /** @psalm-var ?float $data */
+            /** @psalm-var ?int $data */
             $data = $this->raw(self::FIELD_H);
             if (is_null($data)) {
                 return null;
             }
-            $this->h = (float) $data;
+            $this->h = (int) $data;
         }
 
         return $this->h;
@@ -81,17 +81,17 @@ final class AssetDimensionsModel extends JsonObjectModel implements AssetDimensi
 
 
     /**
-     * @param ?float $w
+     * @param ?int $w
      */
-    public function setW(?float $w): void
+    public function setW(?int $w): void
     {
         $this->w = $w;
     }
 
     /**
-     * @param ?float $h
+     * @param ?int $h
      */
-    public function setH(?float $h): void
+    public function setH(?int $h): void
     {
         $this->h = $h;
     }

@@ -17,12 +17,12 @@ use stdClass;
 /**
  * @internal
  */
-final class ImportSinkDraftModel extends JsonObjectModel implements ImportSinkDraft
+final class ImportSinkUpdateDraftModel extends JsonObjectModel implements ImportSinkUpdateDraft
 {
     /**
-     * @var ?string
+     * @var ?int
      */
-    protected $key;
+    protected $version;
 
     /**
      * @var ?string
@@ -34,31 +34,30 @@ final class ImportSinkDraftModel extends JsonObjectModel implements ImportSinkDr
      * @psalm-suppress MissingParamType
      */
     public function __construct(
-        ?string $key = null,
+        ?int $version = null,
         ?string $resourceType = null
     ) {
-        $this->key = $key;
+        $this->version = $version;
         $this->resourceType = $resourceType;
     }
 
     /**
-     * <p>User-defined unique identifier of the ImportSink.
-     * Keys can only contain alphanumeric characters (a-Z, 0-9), underscores and hyphens (_, -).</p>
+     * <p>Current version of the ImportSink.</p>
      *
-     * @return null|string
+     * @return null|int
      */
-    public function getKey()
+    public function getVersion()
     {
-        if (is_null($this->key)) {
-            /** @psalm-var ?string $data */
-            $data = $this->raw(self::FIELD_KEY);
+        if (is_null($this->version)) {
+            /** @psalm-var ?int $data */
+            $data = $this->raw(self::FIELD_VERSION);
             if (is_null($data)) {
                 return null;
             }
-            $this->key = (string) $data;
+            $this->version = (int) $data;
         }
 
-        return $this->key;
+        return $this->version;
     }
 
     /**
@@ -83,11 +82,11 @@ final class ImportSinkDraftModel extends JsonObjectModel implements ImportSinkDr
 
 
     /**
-     * @param ?string $key
+     * @param ?int $version
      */
-    public function setKey(?string $key): void
+    public function setVersion(?int $version): void
     {
-        $this->key = $key;
+        $this->version = $version;
     }
 
     /**

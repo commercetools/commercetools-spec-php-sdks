@@ -19,24 +19,24 @@ interface AssetDimensions extends JsonObject
     /**
      * <p>The width of the asset source.</p>
      *
-     * @return null|float
+     * @return null|int
      */
     public function getW();
 
     /**
      * <p>The height of the asset source.</p>
      *
-     * @return null|float
+     * @return null|int
      */
     public function getH();
 
     /**
-     * @param ?float $w
+     * @param ?int $w
      */
-    public function setW(?float $w): void;
+    public function setW(?int $w): void;
 
     /**
-     * @param ?float $h
+     * @param ?int $h
      */
-    public function setH(?float $h): void;
+    public function setH(?int $h): void;
 }

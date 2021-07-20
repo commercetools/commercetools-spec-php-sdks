@@ -9,7 +9,7 @@ declare(strict_types=1);
 namespace Commercetools\Import\Client\Resource;
 
 use Commercetools\Client\ApiResource;
-use Commercetools\Import\Models\Importsinks\ImportSinkDraft;
+use Commercetools\Import\Models\Importsinks\ImportSinkUpdateDraft;
 use GuzzleHttp\ClientInterface;
 use Psr\Http\Message\UploadedFileInterface;
 
@@ -27,10 +27,10 @@ class ResourceByProjectKeyImportSinksByImportSinkKey extends ApiResource
     }
 
     /**
-     * @psalm-param ?ImportSinkDraft $body
+     * @psalm-param ?ImportSinkUpdateDraft $body
      * @psalm-param array<string, scalar|scalar[]> $headers
      */
-    public function put(?ImportSinkDraft $body = null, array $headers = []): ByProjectKeyImportSinksByImportSinkKeyPut
+    public function put(?ImportSinkUpdateDraft $body = null, array $headers = []): ByProjectKeyImportSinksByImportSinkKeyPut
     {
         $args = $this->getArgs();
 

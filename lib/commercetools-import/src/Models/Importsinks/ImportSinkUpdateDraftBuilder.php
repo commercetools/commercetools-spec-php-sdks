@@ -16,14 +16,14 @@ use Commercetools\Base\MapperFactory;
 use stdClass;
 
 /**
- * @implements Builder<ImportSinkDraft>
+ * @implements Builder<ImportSinkUpdateDraft>
  */
-final class ImportSinkDraftBuilder implements Builder
+final class ImportSinkUpdateDraftBuilder implements Builder
 {
     /**
-     * @var ?string
+     * @var ?int
      */
-    private $key;
+    private $version;
 
     /**
      * @var ?string
@@ -31,14 +31,13 @@ final class ImportSinkDraftBuilder implements Builder
     private $resourceType;
 
     /**
-     * <p>User-defined unique identifier of the ImportSink.
-     * Keys can only contain alphanumeric characters (a-Z, 0-9), underscores and hyphens (_, -).</p>
+     * <p>Current version of the ImportSink.</p>
      *
-     * @return null|string
+     * @return null|int
      */
-    public function getKey()
+    public function getVersion()
     {
-        return $this->key;
+        return $this->version;
     }
 
     /**
@@ -53,12 +52,12 @@ final class ImportSinkDraftBuilder implements Builder
     }
 
     /**
-     * @param ?string $key
+     * @param ?int $version
      * @return $this
      */
-    public function withKey(?string $key)
+    public function withVersion(?int $version)
     {
-        $this->key = $key;
+        $this->version = $version;
 
         return $this;
     }
@@ -75,15 +74,15 @@ final class ImportSinkDraftBuilder implements Builder
     }
 
 
-    public function build(): ImportSinkDraft
+    public function build(): ImportSinkUpdateDraft
     {
-        return new ImportSinkDraftModel(
-            $this->key,
+        return new ImportSinkUpdateDraftModel(
+            $this->version,
             $this->resourceType
         );
     }
 
-    public static function of(): ImportSinkDraftBuilder
+    public static function of(): ImportSinkUpdateDraftBuilder
     {
         return new self();
     }

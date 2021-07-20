@@ -21,19 +21,19 @@ use stdClass;
 final class AssetDimensionsBuilder implements Builder
 {
     /**
-     * @var ?float
+     * @var ?int
      */
     private $w;
 
     /**
-     * @var ?float
+     * @var ?int
      */
     private $h;
 
     /**
      * <p>The width of the asset source.</p>
      *
-     * @return null|float
+     * @return null|int
      */
     public function getW()
     {
@@ -43,7 +43,7 @@ final class AssetDimensionsBuilder implements Builder
     /**
      * <p>The height of the asset source.</p>
      *
-     * @return null|float
+     * @return null|int
      */
     public function getH()
     {
@@ -51,10 +51,10 @@ final class AssetDimensionsBuilder implements Builder
     }
 
     /**
-     * @param ?float $w
+     * @param ?int $w
      * @return $this
      */
-    public function withW(?float $w)
+    public function withW(?int $w)
     {
         $this->w = $w;
 
@@ -62,10 +62,10 @@ final class AssetDimensionsBuilder implements Builder
     }
 
     /**
-     * @param ?float $h
+     * @param ?int $h
      * @return $this
      */
-    public function withH(?float $h)
+    public function withH(?int $h)
     {
         $this->h = $h;
 

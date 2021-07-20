@@ -11,18 +11,17 @@ namespace Commercetools\Import\Models\Importsinks;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 
-interface ImportSinkDraft extends JsonObject
+interface ImportSinkUpdateDraft extends JsonObject
 {
-    public const FIELD_KEY = 'key';
+    public const FIELD_VERSION = 'version';
     public const FIELD_RESOURCE_TYPE = 'resourceType';
 
     /**
-     * <p>User-defined unique identifier of the ImportSink.
-     * Keys can only contain alphanumeric characters (a-Z, 0-9), underscores and hyphens (_, -).</p>
+     * <p>Current version of the ImportSink.</p>
      *
-     * @return null|string
+     * @return null|int
      */
-    public function getKey();
+    public function getVersion();
 
     /**
      * <p>The <a href="#importresourcetype">resource type</a> to be imported.
@@ -33,9 +32,9 @@ interface ImportSinkDraft extends JsonObject
     public function getResourceType();
 
     /**
-     * @param ?string $key
+     * @param ?int $version
      */
-    public function setKey(?string $key): void;
+    public function setVersion(?int $version): void;
 
     /**
      * @param ?string $resourceType
